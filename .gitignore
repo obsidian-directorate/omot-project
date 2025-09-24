@@ -164,3 +164,8 @@ fabric.properties
 
 ### Android Studio Patch ###
 !/gradle/wrapper/gradle-wrapper.jar
+
+### Others ###
+
+# TrueType fonts
+*.ttf

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/orbitron_regular"
+        tools:targetApi="26" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        android:font="@font/orbitron_medium"
+        tools:targetApi="26" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="600"
+        android:font="@font/orbitron_semibold"
+        tools:targetApi="26" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/orbitron_bold"
+        tools:targetApi="26" />
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="900"
+        android:font="@font/orbitron_black"
+        tools:targetApi="26" />
+</font-family>
