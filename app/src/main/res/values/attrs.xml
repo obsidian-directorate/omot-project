@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ClearanceTheme">
+        <attr name="clearanceBetaColor" format="color" />
+        <attr name="clearanceAlphaColor" format="color" />
+        <attr name="clearanceOmegaColor" format="color" />
+        <attr name="clearanceShadowColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ClearanceBadge">
+        <attr name="clearanceLevel" format="enum">
+            <enum name="beta" value="0" />
+            <enum name="alpha" value="1" />
+            <enum name="omega" value="2" />
+            <enum name="shadow" value="3" />
+        </attr>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Orbitron for headings and clearance displays -->
+    <style name="TextAppearance.OMOT.Display.Large" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="fontFamily">@font/orbitron</item>
+        <item name="android:fontFamily">@font/orbitron</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Display.Medium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="fontFamily">@font/orbitron</item>
+        <item name="android:fontFamily">@font/orbitron</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Display.Small" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="fontFamily">@font/orbitron</item>
+        <item name="android:fontFamily">@font/orbitron</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Headline.Large" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@font/orbitron</item>
+        <item name="android:fontFamily">@font/orbitron</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Headline.Medium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/orbitron</item>
+        <item name="android:fontFamily">@font/orbitron</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Headline.Small" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/orbitron</item>
+        <item name="android:fontFamily">@font/orbitron</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Roboto Mono for terminal text -->
+    <style name="TextAppearance.OMOT.Body.Large" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/roboto_mono</item>
+        <item name="android:fontFamily">@font/roboto_mono</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Body.Medium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/roboto_mono</item>
+        <item name="android:fontFamily">@font/roboto_mono</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Body.Small" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/roboto_mono</item>
+        <item name="android:fontFamily">@font/roboto_mono</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Share Tech Mono for timers and countdowns -->
+    <style name="TextAppearance.OMOT.Label.Large" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/share_tech_mono</item>
+        <item name="android:fontFamily">@font/share_tech_mono</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Label.Medium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/share_tech_mono</item>
+        <item name="android:fontFamily">@font/share_tech_mono</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Label.Small" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">@font/share_tech_mono</item>
+        <item name="android:fontFamily">@font/share_tech_mono</item>
+    </style>
+
+    <!-- Rajdhani for titles -->
+    <style name="TextAppearance.OMOT.Title.Large" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/rajdhani</item>
+        <item name="android:fontFamily">@font/rajdhani</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Title.Medium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/rajdhani</item>
+        <item name="android:fontFamily">@font/rajdhani</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextAppearance.OMOT.Title.Small" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/rajdhani</item>
+        <item name="android:fontFamily">@font/rajdhani</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <!-- Russo One for alerts and warnings -->
+    <style name="TextAppearance.OMOT.Alert" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/russo_one</item>
+        <item name="android:fontFamily">@font/russo_one</item>
+        <item name="android:textColor">@color/omot_red_alert</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- VT323 for terminal simulations -->
+    <style name="TextAppearance.OMOT.Terminal" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/vt323</item>
+        <item name="android:fontFamily">@font/vt323</item>
+        <item name="android:textColor">@color/omot_green_success</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+</resources>

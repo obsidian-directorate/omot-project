@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button styles -->
+    <style name="Button.OMOT" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/omot_blue_primary</item>
+        <item name="android:textColor">@color/omot_text_primary</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="Button.OMOT.Outline" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/omot_blue_light</item>
+        <item name="strokeColor">@color/omot_blue_primary</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Card styles -->
+    <style name="CardView.OMOT" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/omot_surface_variant</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="strokeColor">@color/omot_outline</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Chip styles -->
+    <style name="Chip.OMOT" parent="Widget.Material3.Chip.Assist">
+        <item name="chipBackgroundColor">@color/omot_blue_surface</item>
+        <item name="chipStrokeColor">@color/omot_blue_primary</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="Widget.OMOT.ClearanceBadge" parent="Widget.Material3.Chip.Assist">
+        <item name="android:textAppearance">@style/TextAppearance.OMOT.Label.Medium</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <!-- Clearance badge styles -->
+    <style name="Badge.Clearance.BETA">
+        <item name="android:background">@color/clearance_beta</item>
+        <item name="android:textColor">@color/omot_text_primary</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <style name="Badge.Clearance.ALPHA">
+        <item name="android:background">@color/clearance_alpha</item>
+        <item name="android:textColor">@color/omot_text_primary</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <style name="Badge.Clearance.OMEGA">
+        <item name="android:background">@color/clearance_omega</item>
+        <item name="android:textColor">@color/omot_text_primary</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <style name="Badge.Clearance.SHADOW">
+        <item name="android:background">@color/clearance_shadow</item>
+        <item name="android:textColor">@color/omot_text_primary</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">4dp</item>
+    </style>
+</resources>

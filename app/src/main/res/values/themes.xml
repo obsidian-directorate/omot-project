@@ -1,9 +1,83 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.OMOT" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.OMOT" parent="Theme.Material3.Dark">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/omot_blue_primary</item>
+        <item name="colorPrimaryContainer">@color/omot_blue_surface</item>
+        <item name="colorOnPrimary">@color/omot_text_primary</item>
+
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/omot_green_tactical</item>
+        <item name="colorSecondaryContainer">@color/omot_surface_variant</item>
+        <item name="colorOnSecondary">@color/omot_text_primary</item>
+
+        <!-- Surface colors -->
+        <item name="colorSurface">@color/omot_surface</item>
+        <item name="colorSurfaceVariant">@color/omot_surface_variant</item>
+        <item name="colorOnSurface">@color/omot_text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/omot_text_secondary</item>
+
+        <!-- Background -->
+        <item name="android:colorBackground">@color/omot_background</item>
+        <item name="colorOnBackground">@color/omot_text_primary</item>
+
+        <!-- Error colors -->
+        <item name="colorError">@color/omot_red_alert</item>
+        <item name="colorErrorContainer">@color/omot_red_emergency</item>
+        <item name="colorOnError">@color/omot_text_primary</item>
+
+        <!-- Outline -->
+        <item name="colorOutline">@color/omot_outline</item>
+        <item name="colorOutlineVariant">@color/omot_highlight</item>
+
+        <!-- Custom attributes for clearance levels -->
+        <item name="clearanceBetaColor">@color/clearance_beta</item>
+        <item name="clearanceAlphaColor">@color/clearance_alpha</item>
+        <item name="clearanceOmegaColor">@color/clearance_omega</item>
+        <item name="clearanceShadowColor">@color/clearance_shadow</item>
+
+        <!-- Typography -->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.OMOT.Display.Large</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.OMOT.Display.Medium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.OMOT.Display.Small</item>
+
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.OMOT.Headline.Large</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.OMOT.Headline.Medium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.OMOT.Headline.Small</item>
+
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.OMOT.Title.Large</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.OMOT.Title.Medium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.OMOT.Title.Small</item>
+
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.OMOT.Body.Large</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.OMOT.Body.Medium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.OMOT.Body.Small</item>
+
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.OMOT.Label.Large</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.OMOT.Label.Medium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.OMOT.Label.Small</item>
+
+        <!-- Component styles -->
+        <item name="cardViewStyle">@style/CardView.OMOT</item>
+        <item name="buttonStyle">@style/Button.OMOT</item>
+        <item name="materialButtonStyle">@style/Button.OMOT</item>
+        <item name="chipStyle">@style/Chip.OMOT</item>
+
+        <!-- Dark mode -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="isLightTheme">false</item>
     </style>
 
-    <style name="Theme.OMOT" parent="Base.Theme.OMOT" />
+    <style name="Theme.OMOT" parent="Base.Theme.OMOT">
+        <item name="android:statusBarColor">@color/omot_obsidian_dark</item>
+        <item name="android:navigationBarColor">@color/omot_obsidian_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
+    </style>
+
+    <!-- Debug theme (with visual indicators) -->
+    <style name="Theme.OMOT.Debug" parent="Theme.OMOT">
+        <item name="colorPrimary">@color/omot_orange_warning</item>
+        <item name="android:windowBackground">@color/omot_obsidian_light</item>
+    </style>
 </resources>

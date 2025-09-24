@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Obsidian core palette -->
+    <color name="omot_white">#FFFFFFFF</color>
+    <color name="omot_black">#FF000000</color>
+    <color name="omot_obsidian">#FF050508</color>
+    <color name="omot_obsidian_dark">#FF0A0A12</color>
+    <color name="omot_obsidian_light">#FF1A1A24</color>
+
+    <!-- Tactical blues -->
+    <color name="omot_blue_primary">#FF1565C0</color>
+    <color name="omot_blue_dark">#FF0D47A1</color>
+    <color name="omot_blue_light">#FF42A5F5</color>
+    <color name="omot_blue_surface">#FF1E2A3A</color>
+
+    <!-- Alert & status colors -->
+    <color name="omot_green_tactical">#FF2E7D32</color>
+    <color name="omot_green_success">#FF4CAF50</color>
+    <color name="omot_red_alert">#FFC62828</color>
+    <color name="omot_red_emergency">#FFB71C1C</color>
+    <color name="omot_orange_warning">#FFEF6C00</color>
+    <color name="omot_yellow_caution">#FFF9A825</color>
+
+    <!-- Clearance level colors -->
+    <color name="clearance_beta">@color/omot_green_success</color>
+    <color name="clearance_alpha">#FF2196F3</color>
+    <color name="clearance_omega">#FFF44336</color>
+    <color name="clearance_shadow">#FF9C27B0</color>
+
+    <!-- Neutral text & surface -->
+    <color name="omot_text_primary">#FFE0E0E0</color>
+    <color name="omot_text_secondary">#FF9E9E9E</color>
+    <color name="omot_text_disabled">#FF616161</color>
+    <color name="omot_surface">#FF121212</color>
+    <color name="omot_surface_variant">#FF1E1E1E</color>
+    <color name="omot_background">#FF0A0A12</color>
+
+    <!-- Interactive elements -->
+    <color name="omot_outline">#FF2747FF</color>
+    <color name="omot_highlight">#FF263238</color>
+    <color name="omot_overlay">#801A1A24</color>
 </resources>
