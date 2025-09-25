@@ -15,4 +15,17 @@
             <enum name="shadow" value="3" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="Theme">
+        <attr name="badgeClearanceBetaStyle" format="reference" />
+        <attr name="badgeClearanceAlphaStyle" format="reference" />
+        <attr name="badgeClearanceOmegaStyle" format="reference" />
+        <attr name="badgeClearanceShadowStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ClearanceBadgeView">
+        <attr name="clearanceLevel" />
+        <attr name="badgeText" format="string" />
+        <attr name="badgeCompact" format="boolean" />
+    </declare-styleable>
 </resources>

@@ -63,6 +63,11 @@
         <item name="materialButtonStyle">@style/Button.OMOT</item>
         <item name="chipStyle">@style/Chip.OMOT</item>
 
+        <item name="badgeClearanceBetaStyle">@style/Badge.Clearance.BETA</item>
+        <item name="badgeClearanceAlphaStyle">@style/Badge.Clearance.ALPHA</item>
+        <item name="badgeClearanceOmegaStyle">@style/Badge.Clearance.OMEGA</item>
+        <item name="badgeClearanceShadowStyle">@style/Badge.Clearance.SHADOW</item>
+
         <!-- Dark mode -->
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="isLightTheme">false</item>

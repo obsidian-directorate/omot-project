@@ -33,15 +33,19 @@
 
     <style name="Widget.OMOT.ClearanceBadge" parent="Widget.Material3.Chip.Assist">
         <item name="android:textAppearance">@style/TextAppearance.OMOT.Label.Medium</item>
+        <item name="android:gravity">center</item>
         <item name="android:minHeight">24dp</item>
         <item name="android:minWidth">0dp</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
         <item name="cornerRadius">12dp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Clearance badge styles -->
-    <style name="Badge.Clearance.BETA">
+    <style name="Badge.Clearance.BETA" parent="Widget.OMOT.ClearanceBadge">
         <item name="android:background">@color/clearance_beta</item>
         <item name="android:textColor">@color/omot_text_primary</item>
         <item name="android:textSize">10sp</item>
@@ -49,7 +53,7 @@
         <item name="cornerRadius">4dp</item>
     </style>
 
-    <style name="Badge.Clearance.ALPHA">
+    <style name="Badge.Clearance.ALPHA" parent="Widget.OMOT.ClearanceBadge">
         <item name="android:background">@color/clearance_alpha</item>
         <item name="android:textColor">@color/omot_text_primary</item>
         <item name="android:textSize">10sp</item>
@@ -57,7 +61,7 @@
         <item name="cornerRadius">4dp</item>
     </style>
 
-    <style name="Badge.Clearance.OMEGA">
+    <style name="Badge.Clearance.OMEGA" parent="Widget.OMOT.ClearanceBadge">
         <item name="android:background">@color/clearance_omega</item>
         <item name="android:textColor">@color/omot_text_primary</item>
         <item name="android:textSize">10sp</item>
@@ -65,7 +69,7 @@
         <item name="cornerRadius">4dp</item>
     </style>
 
-    <style name="Badge.Clearance.SHADOW">
+    <style name="Badge.Clearance.SHADOW" parent="Widget.OMOT.ClearanceBadge">
         <item name="android:background">@color/clearance_shadow</item>
         <item name="android:textColor">@color/omot_text_primary</item>
         <item name="android:textSize">10sp</item>
