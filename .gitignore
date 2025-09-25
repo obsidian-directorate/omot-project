@@ -169,3 +169,6 @@ fabric.properties
 
 # TrueType fonts
 *.ttf
+
+# Waveform Audio File Format
+*.wav

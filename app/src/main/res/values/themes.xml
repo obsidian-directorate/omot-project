@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.OMOT" parent="Theme.Material3.Dark">
+    <style name="Base.Theme.OMOT" parent="Theme.Material3.Dark.NoActionBar">
         <!-- Primary colors -->
         <item name="colorPrimary">@color/omot_blue_primary</item>
         <item name="colorPrimaryContainer">@color/omot_blue_surface</item>
@@ -84,5 +84,14 @@
     <style name="Theme.OMOT.Debug" parent="Theme.OMOT">
         <item name="colorPrimary">@color/omot_orange_warning</item>
         <item name="android:windowBackground">@color/omot_obsidian_light</item>
+    </style>
+
+    <!-- Splash screen theme -->
+    <style name="Theme.OMOT.Splash" parent="Theme.OMOT">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 </resources>

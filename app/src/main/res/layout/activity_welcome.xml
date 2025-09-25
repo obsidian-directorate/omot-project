@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background"
+    android:padding="24dp"
+    tools:context=".ui.WelcomeActivity">
+
+    <!-- Terminal header -->
+    <TextView
+        android:id="@+id/tv_terminal_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="@string/terminal_header"
+        android:textAppearance="@style/TextAppearance.OMOT.Terminal"
+        android:textSize="16sp" />
+
+    <!-- OMOT logo -->
+    <ImageView
+        android:id="@+id/iv_splash_logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@id/tv_terminal_header"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/splash_logo_animated"
+        android:visibility="invisible" />
+
+    <!-- Boot sequence text container -->
+    <LinearLayout
+        android:id="@+id/layout_terminal_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_splash_logo"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical">
+
+        <!-- Boot line 1 -->
+        <TextView
+            android:id="@+id/tv_boot_line_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.OMOT.Terminal"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
+        <!-- Boot line 2 -->
+        <TextView
+            android:id="@+id/tv_boot_line_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.OMOT.Terminal"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
+        <!-- Boot line 3 -->
+        <TextView
+            android:id="@+id/tv_boot_line_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.OMOT.Terminal"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
+        <!-- Progress indicator -->
+        <TextView
+            android:id="@+id/tv_progress_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.OMOT.Terminal"
+            android:textSize="12sp"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <!-- Security clearance footer -->
+    <TextView
+        android:id="@+id/tv_security_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/security_footer"
+        android:textColor="@color/omot_text_secondary"
+        android:visibility="invisible" />
+</RelativeLayout>
