@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Alert circle -->
+    <path
+        android:fillColor="@color/omot_red_alert"
+        android:strokeColor="@color/omot_red_emergency"
+        android:strokeWidth="2"
+        android:pathData="M54,9a45,45 0,1 0,0 90a45,45 0,1 0,0 -90z" />
+
+    <!-- Exclamation mark -->
+    <path
+        android:fillColor="@color/omot_white"
+        android:pathData="M52,30h4v30h-4z" />
+    <path
+        android:fillColor="@color/omot_white"
+        android:pathData="M52,66h4v4h-4z" />
+</vector>

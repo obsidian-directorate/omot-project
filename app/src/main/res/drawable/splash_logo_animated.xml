@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+
+    <!-- Pulsing core -->
+    <path
+        android:name="core"
+        android:fillColor="@color/omot_blue_primary"
+        android:pathData="M80,80h40v40h-40z" />
+
+    <!-- Scanning rings -->
+    <path
+        android:name="ring_outer"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/omot_blue_light"
+        android:strokeWidth="2"
+        android:pathData="M40,40a60,60 0,1 0,120 0a60,60 0,1 0,-120 0z" />
+</vector>

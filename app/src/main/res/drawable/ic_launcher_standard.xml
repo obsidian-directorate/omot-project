@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Outer Obsidian ring -->
+    <path
+        android:fillColor="@color/omot_obsidian_dark"
+        android:strokeColor="@color/omot_blue_primary"
+        android:strokeWidth="2"
+        android:pathData="M54,9a45,45 0,1 0,0 90a45,45 0,1 0,0 -90z" />
+
+    <!-- Inner shield -->
+    <path
+        android:fillColor="@color/omot_blue_primary"
+        android:pathData="M54,30l-12,24h8v18h8v-18h8z" />
+
+    <!-- OSD text -->
+    <path
+        android:fillColor="@color/omot_text_primary"
+        android:pathData="M40,75l4,-2l4,2v4h-8z" />
+</vector>

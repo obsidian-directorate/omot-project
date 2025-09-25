@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp"
+    android:height="80dp"
+    android:viewportWidth="80"
+    android:viewportHeight="80">
+
+    <!-- Outer classified ring -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/omot_blue_primary"
+        android:strokeWidth="3"
+        android:pathData="M40,5a35,35 0,1 0,0 70a35,35 0,1 0,0 -70z" />
+
+    <!-- Inner text arc -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/omot_text_primary"
+        android:strokeWidth="1"
+        android:pathData="M25,40a15,15 0,0 1,30 0" />
+</vector>
