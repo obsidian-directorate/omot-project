@@ -32,6 +32,9 @@
             android:name=".ui.main.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.OMOT" />
-    </application>
 
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+    </application>
 </manifest>

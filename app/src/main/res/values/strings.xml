@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">OMOT</string>
 
+    <!-- Biometric specifics -->
+    <string name="biometric_title">Retinal/Print Scan Required</string>
+    <string name="biometric_subtitle">Authenticate to access OMOT terminal</string>
+    <string name="biometric_description">Biometric authentication is required for security clearance</string>
+    <string name="biometric_neg_btn">Use Cipher Key</string>
+
     <!-- Boot lines -->
     <string name="boot_line_1">> INITIALIZING SECURITY PROTOCOLS…</string>
     <string name="boot_line_2">> AUTHENTICATING CLEARANCE LEVEL…</string>

@@ -68,6 +68,9 @@ dependencies {
     implementation(libs.security.crypto)
     implementation(libs.biometric)
 
+    // Root detection
+    implementation(libs.rootbeer.lib)
+
     // Lifecycle & architecture
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.livedata.ktx)
