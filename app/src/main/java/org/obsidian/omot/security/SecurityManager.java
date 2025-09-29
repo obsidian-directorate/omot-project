@@ -261,4 +261,25 @@ public class SecurityManager {
     public int getTamperDetectionCount() {
         return tamperDetectionCount;
     }
+
+    // === LOCKOUT SYSTEM ===
+
+    public boolean isAccountLocked() {
+        String lockoutTime = retrieveSensitiveData("lockout_until");
+        if (lockoutTime != null) {
+            long lockoutUntil = Long.parseLong(lockoutTime);
+            return System.currentTimeMillis() < lockoutUntil;
+        }
+        return false;
+    }
+
+    public long getRemainingLockoutTime() {
+        String lockoutTime = retrieveSensitiveData("lockout_until");
+        if (lockoutTime != null) {
+            long lockoutUntil = Long.parseLong(lockoutTime);
+            long remaining = lockoutUntil - System.currentTimeMillis();
+            return Math.max(0, remaining);
+        }
+        return 0;
+    }
 }

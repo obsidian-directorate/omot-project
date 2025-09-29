@@ -14,6 +14,23 @@
         <item name="cornerRadius">8dp</item>
     </style>
 
+    <style name="Button.OMOT.Text" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/omot_blue_light</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!-- Text input styles -->
+    <style name="Widget.OMOT.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/omot_blue_primary</item>
+        <item name="android:strokeColor">@color/omot_blue_primary</item>
+        <item name="hintTextColor">@color/omot_text_secondary</item>
+        <item name="android:textColorHint">@color/omot_text_secondary</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+    </style>
+
     <!-- Card styles -->
     <style name="CardView.OMOT" parent="Widget.Material3.CardView.Elevated">
         <item name="cardBackgroundColor">@color/omot_surface_variant</item>

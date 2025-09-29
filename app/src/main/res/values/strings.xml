@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">OMOT</string>
 
+    <!-- Agency departments & information -->
+    <string name="security_desk">Directorate Security Desk</string>
+    <string name="security_email_address">secure-channel@obsidian.osd</string>
+
     <!-- Biometric specifics -->
     <string name="biometric_title">Retinal/Print Scan Required</string>
     <string name="biometric_subtitle">Authenticate to access OMOT terminal</string>
@@ -12,12 +16,116 @@
     <string name="boot_line_2">> AUTHENTICATING CLEARANCE LEVEL…</string>
     <string name="boot_line_3">> OMOT SYSTEM READY</string>
 
+    <!-- Button texts -->
+    <string name="button_login">ACCESS TERMINAL</string>
+    <string name="button_biometric">RETINAL/PRINT SCAN</string>
+    <string name="button_forgot_pass_link">Lost Credentials</string>
+    <string name="button_register_link">New Agent</string>
+    <string name="button_register">COMPLETE REGISTRATION</string>
+    <string name="button_login_back">ALREADY HAVE AN ACCOUNT?</string>
+    <string name="button_verify_identity">VERIFY IDENTITY</string>
+    <string name="button_reset_password">RESET CIPHER KEY</string>
+    <string name="button_cancel_recovery">CANCEL RECOVERY</string>
+
+    <!-- Descriptions -->
+    <string name="forgot_pass_desc">Enter your codename and answer your security question to recover access.</string>
+
     <!-- Footers -->
     <string name="security_footer">SECURITY LEVEL: MAXIMUM • ENCRYPTION: AES-256</string>
 
     <!-- Headers -->
     <string name="terminal_header">OBSIDIAN MOBILE OPS TERMINAL</string>
+    <string name="auth_required_header">AUTHENTICATION REQUIRED</string>
+    <string name="registration_header">AGENT REGISTRATION</string>
+    <string name="lost_credential_header">LOST CREDENTIALS PROTOCOL</string>
+    <string name="security_lockdown_header">SECURITY LOCKDOWN</string>
+    <string name="forgot_pass_header">Lost Credentials Protocol</string>
+    <string name="lockout_header">SECURITY BREACH DETECTED</string>
+    <string name="lockout_expired">LOCKOUT EXPIRED</string>
+
+    <!-- Hints -->
+    <string name="codename_hint">Codename</string>
+    <string name="choose_codename_hint">Choose codename</string>
+    <string name="your_codename_hint">Your codename</string>
+    <string name="cipher_key_hint">Cipher key</string>
+    <string name="create_cipher_key_hint">Create cipher key</string>
+    <string name="new_cipher_key_hint">New cipher key</string>
+    <string name="confirm_cipher_key_hint">Confirm cipher key</string>
+    <string name="security_question_hint">Security question</string>
+    <string name="security_answer_hint">Security answer</string>
+
+    <!-- Labels -->
+    <string name="security_question_label">Security question will appear here</string>
+    <string name="countdown_timer_label">UNTIL LOCKOUT EXPIRES</string>
+    <string name="emergency_contact_label">EMERGENCY CONTACT</string>
+    <string name="panic_mode_label">PANIC MODE ACTIVATED - ALL DATA WILL BE PURGED</string>
 
     <!-- Loading texts -->
     <string name="boot_progress">Establishing secure connection</string>
+    <string name="authenticating">AUTHENTICATING…</string>
+    <string name="registering_agent">REGISTERING AGENT…</string>
+    <string name="verifying">VERIFYING…</string>
+    <string name="resetting">RESETTING…</string>
+
+    <!-- Lockout headers -->
+    <string name="lockout_header_1">PANIC MODE ACTIVATED</string>
+    <string name="lockout_header_2">SYSTEM INTEGRITY COMPROMISED</string>
+
+    <!-- Messages -->
+    <string name="lockout_message">Multiple failed authentication attempts detected.\nSystem lockdown initiated for security purposes.</string>
+    <string name="data_purge_message">All sensitive data has been purged for security.\nContact Directorate support for recovery options.</string>
+    <string name="tamper_attempts_message">Multiple tamper attempts detected.\nSystem integrity cannot be guaranteed.</string>
+    <string name="lockout_expired_message">Security lockdown has been lifted.\nYou may now attempt to login again.</string>
+    <string name="lockout_fragment_message">SECURITY BREACH DETECTED\nDATA PURGE INITIATED</string>
+    <string name="system_integrity_message">SYSTEM INTEGRITY COMPROMISED\nCONTACT DIRECTORATE SUPPORT</string>
+    <string name="account_locked_message">ACCOUNT LOCKED\nSECURITY PROTOCOL ENGAGED</string>
+    <string name="unauthorized_message">UNAUTHORIZED ACCESS DETECTED\nACCOUNT LOCKED</string>
+
+    <!-- Password strength indicators -->
+    <string name="level_maximum">STRENGTH: MAXIMUM</string>
+    <string name="level_moderate">STRENGTH: MODERATE</string>
+    <string name="level_weak">STRENGTH: WEAK</string>
+
+    <!-- Section header -->
+    <string name="new_password_section">Create New Cipher Key</string>
+
+    <!-- Status texts -->
+    <string name="access_granted">ACCESS GRANTED</string>
+    <string name="registration_complete">REGISTRATION COMPLETE</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="login_failed">Invalid codename or cipher key</string>
+    <string name="biometric_failed">Biometric authentication failed: </string>
+    <string name="auth_failed">Authentication failed. Try again.</string>
+    <string name="registration_failed">Registration failed</string>
+    <string name="registration_interrupted">Registration interrupted</string>
+    <string name="codename_taken">Registration failed. Codename may be taken.</string>
+    <string name="verification_failed">Verification failed</string>
+    <string name="security_question_found">Security question found. Please answer to verify your identity.</string>
+    <string name="no_agent_found">No agent found with that codename.</string>
+    <string name="codename_empty">Please enter your codename</string>
+    <string name="security_answer_empty">Please answer the security question</string>
+    <string name="codename_first">Please enter a codename first</string>
+    <string name="verification_successful">Identity verified. You may now set a new cipher key.</string>
+    <string name="wrong_security_answer">Security answer incorrect. Please try again.</string>
+    <string name="new_password_secure">New cipher key must be at least 8 characters with uppercase, lowercase, number, and special character</string>
+    <string name="password_mismatch">Cipher keys do not match</string>
+    <string name="reset_success">Cipher key successfully reset. You may now login with your new credentials.</string>
+    <string name="reset_failed">Failed to reset cipher key. Please try again.</string>
+    <string name="credentials_recovered">CREDENTIALS RECOVERED</string>
+    <string name="recovery_protocol_failed">RECOVERY PROTOCOL FAILED</string>
+
+    <!-- Text input errors -->
+    <string name="codename_required">Codename required</string>
+    <string name="password_required">Cipher key required</string>
+    <string name="security_answer_required">Security answer required</string>
+    <string name="password_length_short">Cipher key must be at least 8 characters</string>
+    <string name="codename_length_short">Codename must be at least 3 characters</string>
+    <string name="password_secure">Cipher key must be at least 8 characters with uppercase, lowercase, number, and special character</string>
+
+    <!-- Timers -->
+    <string name="countdown_timer_maximum">10:00</string>
+    <string name="countdown_timer_starter">00:00</string>
+
+    <!-- Toggles -->
+    <string name="biometric_toggle">Enable biometric access</string>
 </resources>

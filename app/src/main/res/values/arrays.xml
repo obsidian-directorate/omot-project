@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="security_questions">
+        <item>What was the name of your first field operation?</item>
+        <item>What is your designated extraction point code?</item>
+        <item>Who was your training instructor?</item>
+        <item>What is your mother\'s maiden name?</item>
+        <item>What city were you recruited in?</item>
+        <item>What is your emergency contact codename?</item>
+        <item>What was your first assignment location?</item>
+    </string-array>
+</resources>

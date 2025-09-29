@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OMOT">
         <activity
-            android:name=".ui.auth.LoginActivity"
+            android:name=".ui.auth.AuthenticationActivity"
             android:exported="false"
             android:theme="@style/Theme.OMOT.Splash" />
         <activity

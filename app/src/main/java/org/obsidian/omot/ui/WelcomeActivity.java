@@ -26,7 +26,7 @@ import androidx.core.view.WindowInsetsCompat;
 import org.obsidian.omot.ui.main.MainActivity;
 import org.obsidian.omot.R;
 import org.obsidian.omot.security.EncryptionManager;
-import org.obsidian.omot.ui.auth.LoginActivity;
+import org.obsidian.omot.ui.auth.AuthenticationActivity;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -330,7 +330,7 @@ public class WelcomeActivity extends AppCompatActivity {
         if (isUserAuthenticated()) {
             intent = new Intent(WelcomeActivity.this, MainActivity.class);
         } else {
-            intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+            intent = new Intent(WelcomeActivity.this, AuthenticationActivity.class);
         }
 
         startActivity(intent);

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="640dp"
+    android:viewportWidth="360"
+    android:viewportHeight="640">
+
+    <!-- Base background -->
+    <path
+        android:fillColor="@color/omot_background"
+        android:pathData="M0,0h360v640h-360z" />
+
+    <!-- Grid pattern -->
+    <group android:scaleX="0.3" android:scaleY="0.3">
+        <!-- Horizontal lines -->
+        <path
+            android:strokeColor="@color/omot_obsidian_light"
+            android:strokeWidth="0.5"
+            android:pathData="M0,50h1200" />
+        <path
+            android:strokeColor="@color/omot_obsidian_light"
+            android:strokeWidth="0.5"
+            android:pathData="M0,100h1200" />
+        <path
+            android:strokeColor="@color/omot_obsidian_light"
+            android:strokeWidth="0.5"
+            android:pathData="M0,150h1200" />
+        <path
+            android:strokeColor="@color/omot_obsidian_light"
+            android:strokeWidth="0.5"
+            android:pathData="M0,200h1200" />
+
+        <!-- Vertical lines -->
+        <path
+            android:strokeColor="@color/omot_obsidian_light"
+            android:strokeWidth="0.5"
+            android:pathData="M50,0v600" />
+        <path
+            android:strokeColor="@color/omot_obsidian_light"
+            android:strokeWidth="0.5"
+            android:pathData="M100,0v600" />
+        <path
+            android:strokeColor="@color/omot_obsidian_light"
+            android:strokeWidth="0.5"
+            android:pathData="M150,0v600" />
+        <path
+            android:strokeColor="@color/omot_obsidian_light"
+            android:strokeWidth="0.5"
+            android:pathData="M200,0v600" />
+    </group>
+
+    <!-- Corner accents -->
+    <path
+        android:strokeColor="@color/omot_blue_primary"
+        android:strokeWidth="2"
+        android:pathData="M20,20h40v40h-40z"
+        android:fillColor="@android:color/transparent" />
+    <path
+        android:strokeColor="@color/omot_blue_primary"
+        android:strokeWidth="2"
+        android:pathData="M300,20h40v40h-40z"
+        android:fillColor="@android:color/transparent" />
+    <path
+        android:strokeColor="@color/omot_blue_primary"
+        android:strokeWidth="2"
+        android:pathData="M20,580h40v40h-40z"
+        android:fillColor="@android:color/transparent" />
+    <path
+        android:strokeColor="@color/omot_blue_primary"
+        android:strokeWidth="2"
+        android:pathData="M300,580h40v40h-40z"
+        android:fillColor="@android:color/transparent" />
+
+    <!-- Central scan area -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="@color/omot_blue_light"
+        android:strokeWidth="1"
+        android:strokeAlpha="0.3"
+        android:pathData="M80,200h200v200h-200z" />
+</vector>

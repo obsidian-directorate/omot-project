@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.auth.LoginFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Codename input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.OMOT.TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/codename_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_codename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.OMOT.Body.Medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Cipher key input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.OMOT.TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:hint="@string/cipher_key_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_cipher_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.OMOT.Body.Medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Login button -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Button.OMOT"
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/button_login" />
+
+        <ProgressBar
+            android:id="@+id/progress_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:indeterminateTint="@color/omot_blue_light"
+            android:visibility="gone" />
+
+        <!-- Biometric button -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Button.OMOT.Outline"
+            android:id="@+id/btn_biometric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="@string/button_biometric"
+            android:visibility="gone" />
+
+        <!-- Status group -->
+        <LinearLayout
+            android:id="@+id/layout_status_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <View
+                android:id="@+id/view_status_indicator"
+                android:layout_width="4dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="12dp"
+                android:background="@color/omot_red_alert" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/invalid_credentials"
+                android:textAppearance="@style/TextAppearance.OMOT.Body.Medium"
+                android:textColor="@color/omot_red_alert" />
+        </LinearLayout>
+
+        <!-- Secondary actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Button.OMOT.Text"
+                android:id="@+id/btn_forgot_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_forgot_pass_link" />
+
+            <Button
+                style="@style/Button.OMOT.Text"
+                android:id="@+id/btn_register"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/button_register_link" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

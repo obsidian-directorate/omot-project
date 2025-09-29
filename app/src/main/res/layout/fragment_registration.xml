@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.auth.RegistrationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Codename input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.OMOT.TextInput"
+            android:id="@+id/edt_layout_codename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/choose_codename_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_codename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.OMOT.Body.Medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Cipher key input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.OMOT.TextInput"
+            android:id="@+id/edt_layout_cipher_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/create_cipher_key_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_cipher_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.OMOT.Body.Medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password strength indicator -->
+        <TextView
+            android:id="@+id/tv_password_strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="@style/TextAppearance.OMOT.Label.Small"
+            android:visibility="gone" />
+
+        <!-- Security question spinner -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.OMOT.TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/security_question_hint">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spn_security_question"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/omot_blue_primary" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Security answer input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.OMOT.TextInput"
+            android:id="@+id/edt_layout_security_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:hint="@string/security_answer_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_security_answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.OMOT.Body.Medium" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Biometric toggle -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/CardView.OMOT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/biometric_toggle"
+                    android:textAppearance="@style/TextAppearance.OMOT.Body.Medium" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_biometric"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Register button -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Button.OMOT"
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/button_register" />
+
+        <!-- Register progress -->
+        <ProgressBar
+            android:id="@+id/progress_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:indeterminateTint="@color/omot_blue_light"
+            android:visibility="gone" />
+
+        <!-- Status group -->
+        <LinearLayout
+            android:id="@+id/layout_status_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="12dp"
+                android:background="@color/omot_red_alert" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/registration_failed"
+                android:textAppearance="@style/TextAppearance.OMOT.Body.Medium"
+                android:textColor="@color/omot_red_alert" />
+        </LinearLayout>
+
+        <!-- Login instead button -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Button.OMOT.Text"
+            android:id="@+id/btn_login_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_login_back" />
+    </LinearLayout>
+
+</ScrollView>

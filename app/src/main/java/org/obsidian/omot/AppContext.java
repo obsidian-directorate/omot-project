@@ -18,7 +18,9 @@ public class AppContext extends Application {
     }
 
     private void initializeSecurity() {
-        SecurityManager.getInstance(this);
+        new Thread(() -> {
+            SecurityManager.getInstance(this);
+        }).start();
     }
 
     public static Context getContext() {
