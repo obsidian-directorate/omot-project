@@ -3,6 +3,7 @@ package org.obsidian.omot;
 import android.app.Application;
 import android.content.Context;
 
+import org.obsidian.omot.data.repository.DBRepository;
 import org.obsidian.omot.security.SecurityManager;
 
 public class AppContext extends Application {
@@ -20,6 +21,10 @@ public class AppContext extends Application {
     private void initializeSecurity() {
         new Thread(() -> {
             SecurityManager.getInstance(this);
+        }).start();
+
+        new Thread(() -> {
+            DBRepository.getInstance(this);
         }).start();
     }
 
