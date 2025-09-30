@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@drawable/nav_header_background"
+    android:gravity="bottom"
+    android:padding="16dp"
+    android:theme="@style/Theme.OMOT">
+
+    <!-- Agent avatar -->
+    <ImageView
+        android:id="@+id/iv_agent_avatar"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/ic_agent_avatar"
+        app:tint="@color/omot_blue_light" />
+
+    <!-- Agent codename -->
+    <TextView
+        android:id="@+id/tv_agent_codename"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agent_codename"
+        android:textAppearance="@style/TextAppearance.OMOT.Title.Medium"
+        android:textColor="@color/omot_text_primary"
+        android:textStyle="bold" />
+
+    <!-- Clearance level -->
+    <TextView
+        android:id="@+id/tv_agent_clearance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/badge_background_beta"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="2dp"
+        android:text="@string/clearance_beta"
+        android:textAppearance="@style/TextAppearance.Material3.LabelSmall"
+        android:textColor="@color/omot_text_primary"
+        android:textStyle="bold" />
+
+    <!-- Last login -->
+    <TextView
+        android:id="@+id/tv_last_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/last_login"
+        android:textAppearance="@style/TextAppearance.OMOT.Label.Small"
+        android:textColor="@color/omot_text_secondary" />
+</LinearLayout>

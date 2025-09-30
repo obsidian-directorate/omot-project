@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_panic"
+        android:icon="@drawable/ic_panic"
+        android:title="@string/action_panic"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_voice"
+        android:icon="@drawable/ic_voice"
+        android:title="@string/action_voice"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_camouflage"
+        android:icon="@drawable/ic_camouflage"
+        android:title="@string/action_camouflage"
+        app:showAsAction="ifRoom" />
+</menu>

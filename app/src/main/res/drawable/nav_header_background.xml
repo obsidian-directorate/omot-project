@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="180dp"
+    android:viewportWidth="360"
+    android:viewportHeight="180">
+
+    <!-- Base gradient -->
+    <path
+        android:fillColor="@color/omot_background"
+        android:pathData="M0,0h360v180h-360z" />
+
+    <!-- Diagonal accent -->
+    <path
+        android:fillColor="@color/omot_blue_primary"
+        android:fillAlpha="0.1"
+        android:pathData="M0,0L360,180V0Z" />
+
+    <!-- Grid overlay -->
+    <group android:scaleX="0.3" android:scaleY="0.3">
+        <path
+            android:fillColor="@color/omot_overlay"
+            android:strokeWidth="0.5"
+            android:pathData="M0,40h1200" />
+        <path
+            android:strokeColor="@color/omot_overlay"
+            android:strokeWidth="0.5"
+            android:pathData="M0,80h1200" />
+        <path
+            android:strokeColor="@color/omot_overlay"
+            android:strokeWidth="0.5"
+            android:pathData="M0,120h1200" />
+        <path
+            android:strokeColor="@color/omot_overlay"
+            android:strokeWidth="0.5"
+            android:pathData="M40,0v180" />
+        <path
+            android:strokeColor="@color/omot_overlay"
+            android:strokeWidth="0.5"
+            android:pathData="M80,0v180" />
+        <path
+            android:strokeColor="@color/omot_overlay"
+            android:strokeWidth="0.5"
+            android:pathData="M120,0v180" />
+    </group>
+
+    <!-- OSD logo pattern -->
+    <group
+        android:scaleX="0.1"
+        android:scaleY="0.1"
+        android:translateX="300"
+        android:translateY="80">
+
+        <path
+            android:fillColor="@color/omot_blue_primary"
+            android:fillAlpha="0.05"
+            android:pathData="M0,0l-20,40h10v30h10v-30h10z" />
+    </group>
+
+    <!-- Bottom border -->
+    <path
+        android:strokeColor="@color/omot_blue_primary"
+        android:strokeWidth="2"
+        android:pathData="M0,178h360" />
+</vector>

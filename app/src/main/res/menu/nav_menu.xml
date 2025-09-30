@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <!-- Dashboard -->
+    <group android:id="@+id/group_main">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_dashboard"
+            android:title="@string/nav_dashboard" />
+        <item
+            android:id="@+id/nav_missions"
+            android:icon="@drawable/ic_missions"
+            android:title="@string/nav_missions" />
+        <item
+            android:id="@+id/nav_dossiers"
+            android:icon="@drawable/ic_dossiers"
+            android:title="@string/nav_dossiers" />
+    </group>
+
+    <!-- Communications (ALPHA+) -->
+    <group
+        android:id="@+id/group_comms"
+        android:checkableBehavior="single"
+        android:visible="false">
+
+        <item
+            android:id="@+id/nav_comms"
+            android:icon="@drawable/ic_comms"
+            android:title="@string/nav_comms" />
+    </group>
+
+    <!-- Tactical tools (ALPHA+) -->
+    <group
+        android:id="@+id/group_tactical"
+        android:checkableBehavior="single"
+        android:visible="false">
+
+        <item
+            android:id="@+id/nav_tactical_map"
+            android:icon="@drawable/ic_map"
+            android:title="@string/nav_tactical_map" />
+
+        <item
+            android:id="@+id/nav_field_kit"
+            android:icon="@drawable/ic_field_kit"
+            android:title="@string/nav_field_kit" />
+    </group>
+
+    <!-- Command console (OMEGA only) -->
+    <group
+        android:id="@+id/group_command"
+        android:checkableBehavior="single"
+        android:visible="false">
+
+        <item
+            android:id="@+id/nav_command"
+            android:icon="@drawable/ic_command"
+            android:title="@string/nav_command" />
+
+        <item
+            android:id="@+id/nav_agent_management"
+            android:icon="@drawable/ic_agents"
+            android:title="@string/nav_agent_management" />
+    </group>
+
+    <!-- SHADOW monitoring -->
+    <group
+        android:id="@+id/group_shadow"
+        android:checkableBehavior="single"
+        android:visible="false">
+
+        <item
+            android:id="@+id/nav_shadow_monitor"
+            android:icon="@drawable/ic_shadow"
+            android:title="@string/nav_shadow_monitor" />
+    </group>
+
+    <!-- System -->
+    <group android:id="@+id/group_system">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/nav_settings" />
+
+        <item
+            android:id="@+id/nav_backup"
+            android:icon="@drawable/ic_backup"
+            android:title="@string/nav_backup" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/nav_logout" />
+    </group>
+
+</menu>

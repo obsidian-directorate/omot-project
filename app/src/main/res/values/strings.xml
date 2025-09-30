@@ -5,6 +5,10 @@
     <string name="security_desk">Directorate Security Desk</string>
     <string name="security_email_address">secure-channel@obsidian.osd</string>
 
+    <!-- Alert dialog -->
+    <string name="panic_mode_title">Activate Panic Mode</string>
+    <string name="panic_mode_message">This will wipe all sensitive data and log you out immediately. Continue?</string>
+
     <!-- Biometric specifics -->
     <string name="biometric_title">Retinal/Print Scan Required</string>
     <string name="biometric_subtitle">Authenticate to access OMOT terminal</string>
@@ -26,12 +30,20 @@
     <string name="button_verify_identity">VERIFY IDENTITY</string>
     <string name="button_reset_password">RESET CIPHER KEY</string>
     <string name="button_cancel_recovery">CANCEL RECOVERY</string>
+    <string name="button_dialog_positive">CONFIRM</string>
+    <string name="button_dialog_negative">CANCEL</string>
+
+    <!-- Clearance levels -->
+    <string name="clearance_beta">BETA</string>
 
     <!-- Descriptions -->
     <string name="forgot_pass_desc">Enter your codename and answer your security question to recover access.</string>
 
     <!-- Footers -->
     <string name="security_footer">SECURITY LEVEL: MAXIMUM • ENCRYPTION: AES-256</string>
+    <string name="security_footer_2">SECURE CONNECTION • ENCRYPTED CHANNEL</string>
+    <string name="security_footer_shadow">⚠️ YOU ARE UNDER DIRECTORATE SURVEILLANCE</string>
+    <string name="security_footer_omega">COMMAND AUTHORITY ACTIVE • FULL SYSTEM ACCESS</string>
 
     <!-- Headers -->
     <string name="terminal_header">OBSIDIAN MOBILE OPS TERMINAL</string>
@@ -70,6 +82,23 @@
     <!-- Lockout headers -->
     <string name="lockout_header_1">PANIC MODE ACTIVATED</string>
     <string name="lockout_header_2">SYSTEM INTEGRITY COMPROMISED</string>
+
+    <!-- Menu -->
+    <string name="nav_dashboard">Mission dashboard</string>
+    <string name="nav_missions">Active missions</string>
+    <string name="nav_dossiers">Target dossiers</string>
+    <string name="nav_comms">Secure comms</string>
+    <string name="nav_tactical_map">Tactical map</string>
+    <string name="nav_field_kit">Field kit tools</string>
+    <string name="nav_command">Command console</string>
+    <string name="nav_agent_management">Agent management</string>
+    <string name="nav_shadow_monitor">Surveillance monitor</string>
+    <string name="nav_settings">System settings</string>
+    <string name="nav_backup">Field backup</string>
+    <string name="nav_logout">Secure logout</string>
+    <string name="action_panic">Panic mode</string>
+    <string name="action_voice">Voice command</string>
+    <string name="action_camouflage">Camouflage UI</string>
 
     <!-- Messages -->
     <string name="lockout_message">Multiple failed authentication attempts detected.\nSystem lockdown initiated for security purposes.</string>
@@ -114,6 +143,10 @@
     <string name="credentials_recovered">CREDENTIALS RECOVERED</string>
     <string name="recovery_protocol_failed">RECOVERY PROTOCOL FAILED</string>
 
+    <!-- Text examples -->
+    <string name="agent_codename">AGENT_SHADOW</string>
+    <string name="last_login">Last login: 2 hours ago</string>
+
     <!-- Text input errors -->
     <string name="codename_required">Codename required</string>
     <string name="password_required">Cipher key required</string>
@@ -122,10 +155,17 @@
     <string name="codename_length_short">Codename must be at least 3 characters</string>
     <string name="password_secure">Cipher key must be at least 8 characters with uppercase, lowercase, number, and special character</string>
 
-    <!-- Timers -->
+    <!-- Timers & timestamps -->
     <string name="countdown_timer_maximum">10:00</string>
     <string name="countdown_timer_starter">00:00</string>
+    <string name="last_login_timestamp">Last login: </string>
 
     <!-- Toggles -->
     <string name="biometric_toggle">Enable biometric access</string>
+
+    <!-- Toolbar titles -->
+    <string name="title_omot_terminal">OMOT Terminal</string>
+    <string name="title_dashboard">Mission dashboard</string>
+    <string name="title_missions">Active missions</string>
+    <string name="title_dossiers">Target dossiers</string>
 </resources>
