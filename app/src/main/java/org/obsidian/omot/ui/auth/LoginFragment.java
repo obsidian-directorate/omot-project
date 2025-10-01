@@ -20,6 +20,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.obsidian.omot.R;
+import org.obsidian.omot.data.daos.AgentDAO;
+import org.obsidian.omot.data.entities.Agent;
+import org.obsidian.omot.data.repository.DBRepository;
 import org.obsidian.omot.security.BiometricAuthManager;
 import org.obsidian.omot.security.CredentialValidator;
 import org.obsidian.omot.security.SecurityManager;
@@ -35,6 +38,8 @@ public class LoginFragment extends Fragment {
     private TextView tvStatus;
 
     private BiometricAuthManager biometricAuthManager;
+    private DBRepository repository;
+    private AgentDAO dao;
     private LoginCallback callback;
 
     public interface LoginCallback {
@@ -54,6 +59,8 @@ public class LoginFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         biometricAuthManager = new BiometricAuthManager(requireContext());
+        repository = DBRepository.getInstance(requireContext());
+        dao = repository.getAgentDAO();
 
         if (getActivity() instanceof LoginCallback) {
             callback = (LoginCallback) getActivity();
@@ -158,20 +165,30 @@ public class LoginFragment extends Fragment {
 
         showLoadingState(true);
 
-        // Simulate authentication process
+        // Perform actual database authentication
         new Thread(() -> {
             try {
-                Thread.sleep(1500); // Simulate network/DB delay
+                Agent agent = dao.getAgentByCodename(codename);
 
                 requireActivity().runOnUiThread(() -> {
-                    if (CredentialValidator.validateCredentials(codename, cipherKey)) {
-                        onLoginSuccess(codename);
+                    if (agent != null && !agent.isAccountLocked()) {
+                        // Validate credentials
+                        String computedHash = CredentialValidator.hashPassword(cipherKey, agent.getSalt());
+                        if (computedHash != null && computedHash.equals(agent.getPasswordHash())) {
+                            onLoginSuccess(agent.getCodename());
+                        } else {
+                            onLoginFailure();
+                        }
+                    } else if (agent != null && agent.isAccountLocked()) {
+                        onAccountLocked();
                     } else {
                         onLoginFailure();
                     }
                 });
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
+            } catch (Exception e) {
+                requireActivity().runOnUiThread(() -> {
+                    onLoginFailure();
+                });
             }
         }).start();
     }
@@ -181,10 +198,16 @@ public class LoginFragment extends Fragment {
             @Override
             public void onAuthSuccess() {
                 requireActivity().runOnUiThread(() -> {
-                    // Retrieve stored credentials and auto-login
+                    // Retrieve last authenticated user and verify biometric is enabled
                     String lastUser = SecurityManager.getInstance(requireContext()).retrieveSensitiveData("last_authenticated_user");
                     if (lastUser != null) {
-                        onLoginSuccess(lastUser);
+                        Agent agent = dao.getAgentByCodename(lastUser);
+                        if (agent != null && agent.isBiometricEnabled()) {
+                            onLoginSuccess(lastUser);
+                        } else {
+                            tvStatus.setText(getString(R.string.biometric_not_enabled));
+                            layoutStatusGroup.setVisibility(View.VISIBLE);
+                        }
                     }
                 });
             }
@@ -260,6 +283,16 @@ public class LoginFragment extends Fragment {
         AnimationUtilities.shakeView(btnLogin);
 
         tvStatus.setText(R.string.login_failed);
+        layoutStatusGroup.setVisibility(View.VISIBLE);
+
+        if (callback != null) {
+            callback.onLoginFailure();
+        }
+    }
+
+    private void onAccountLocked() {
+        showLoadingState(false);
+        tvStatus.setText(getString(R.string.account_locked));
         layoutStatusGroup.setVisibility(View.VISIBLE);
 
         if (callback != null) {

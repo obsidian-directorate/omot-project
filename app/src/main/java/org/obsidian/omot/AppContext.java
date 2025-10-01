@@ -21,9 +21,6 @@ public class AppContext extends Application {
     private void initializeSecurity() {
         new Thread(() -> {
             SecurityManager.getInstance(this);
-        }).start();
-
-        new Thread(() -> {
             DBRepository.getInstance(this);
         }).start();
     }

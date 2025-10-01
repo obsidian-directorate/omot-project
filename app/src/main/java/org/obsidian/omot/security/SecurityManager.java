@@ -9,6 +9,10 @@ import android.util.Base64;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKey;
 
+import org.obsidian.omot.data.daos.AgentDAO;
+import org.obsidian.omot.data.entities.Agent;
+import org.obsidian.omot.data.repository.DBRepository;
+
 import java.io.File;
 
 import timber.log.Timber;
@@ -264,16 +268,17 @@ public class SecurityManager {
 
     // === LOCKOUT SYSTEM ===
 
-    public boolean isAccountLocked() {
-        String lockoutTime = retrieveSensitiveData("lockout_until");
-        if (lockoutTime != null) {
-            long lockoutUntil = Long.parseLong(lockoutTime);
-            return System.currentTimeMillis() < lockoutUntil;
-        }
-        return false;
+    public boolean isAccountLocked(String codename) {
+        DBRepository repository = DBRepository.getInstance(context);
+        AgentDAO dao = repository.getAgentDAO();
+
+        Agent agent = dao.getAgentByCodename(codename);
+        return agent != null && agent.isAccountLocked();
     }
 
-    public long getRemainingLockoutTime() {
+    public long getRemainingLockoutTime(String codename) {
+        // This would check database for lockout timestamps
+        // For now, using the existing encrypted preferences method
         String lockoutTime = retrieveSensitiveData("lockout_until");
         if (lockoutTime != null) {
             long lockoutUntil = Long.parseLong(lockoutTime);

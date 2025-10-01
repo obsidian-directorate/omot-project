@@ -18,6 +18,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.obsidian.omot.R;
+import org.obsidian.omot.data.daos.AgentDAO;
+import org.obsidian.omot.data.entities.Agent;
+import org.obsidian.omot.data.repository.DBRepository;
 import org.obsidian.omot.security.CredentialValidator;
 import org.obsidian.omot.security.SecurityManager;
 import org.obsidian.omot.utils.AnimationUtilities;
@@ -29,6 +32,9 @@ public class ForgotPassFragment extends Fragment {
     private MaterialButton btnVerify, btnReset, btnCancel;
     private ProgressBar progressVerify, progressReset;
     private LinearLayout layoutStatusGroup, layoutNewPassword;
+
+    private DBRepository repository;
+    private AgentDAO dao;
 
     private ForgotPasswordCallback callback;
     private String currentCodename;
@@ -52,6 +58,9 @@ public class ForgotPassFragment extends Fragment {
         if (getActivity() instanceof ForgotPasswordCallback) {
             callback = (ForgotPasswordCallback) getActivity();
         }
+
+        repository = DBRepository.getInstance(requireContext());
+        dao = repository.getAgentDAO();
     }
 
     @Nullable
@@ -134,15 +143,13 @@ public class ForgotPassFragment extends Fragment {
             return;
         }
 
-        SecurityManager manager = SecurityManager.getInstance(requireContext());
-        String securityQuestion = manager.retrieveSensitiveData("security_question_" + codename);
-        storedSecurityAnswer = manager.retrieveSensitiveData("security_answer_" + codename);
-
-        if (securityQuestion != null && storedSecurityAnswer != null) {
+        Agent agent = dao.getAgentByCodename(codename);
+        if (agent != null && agent.getSecurityQuestion() != null) {
             currentCodename = codename;
-            tvSecurityQuestion.setText(securityQuestion);
+            storedSecurityAnswer = agent.getSecurityAnswerHash();
+            tvSecurityQuestion.setText(agent.getSecurityQuestion());
             tvSecurityQuestion.setVisibility(View.VISIBLE);
-            showStatus(getString(R.string.security_question_found), R.color.omot_red_alert);
+            showStatus(getString(R.string.security_question_found), R.color.omot_blue_light);
         } else {
             tvSecurityQuestion.setVisibility(View.GONE);
             showStatus(getString(R.string.no_agent_found), R.color.omot_red_alert);
@@ -163,29 +170,30 @@ public class ForgotPassFragment extends Fragment {
             return;
         }
 
-        if (storedSecurityAnswer == null) {
+        Agent agent = dao.getAgentByCodename(codename);
+        if (agent == null || agent.getSecurityAnswerHash() == null) {
             showStatus(getString(R.string.codename_first), R.color.omot_red_alert);
             return;
         }
 
         showVerifyLoading(true);
 
-        // Simulate verification process
         new Thread(() -> {
             try {
-                Thread.sleep(1500); // Simulate verification delay
+                // Hash the provided answer with the agent's salt
+                String computedHash = CredentialValidator.hashPassword(answer, agent.getSalt());
+                boolean isCorrect = computedHash != null && computedHash.equals(agent.getSecurityAnswerHash());
 
                 requireActivity().runOnUiThread(() -> {
                     showVerifyLoading(false);
-
-                    if (answer.equalsIgnoreCase(storedSecurityAnswer)) {
+                    if (isCorrect) {
+                        currentCodename = codename;
                         onVerificationSuccess();
                     } else {
                         onVerificationFailure();
                     }
                 });
             } catch (Exception e) {
-                Thread.currentThread().interrupt();
                 requireActivity().runOnUiThread(() -> {
                     showVerifyLoading(false);
                     onVerificationFailure();
@@ -263,20 +271,31 @@ public class ForgotPassFragment extends Fragment {
 
     private boolean performPasswordReset(String newPass) {
         try {
-            SecurityManager manager = SecurityManager.getInstance(requireContext());
+            Agent agent = dao.getAgentByCodename(currentCodename);
+            if (agent == null) {
+                return false;
+            }
 
-            // Generate new salt and hash
+            // Generate new salt ana hash (for security, rotate the salt)
             String newSalt = CredentialValidator.generateSalt();
             String newHash = CredentialValidator.hashPassword(newPass, newSalt);
 
-            // Update stored credentials
-            manager.storeSensitiveData("hash_" + currentCodename, newHash);
-            manager.storeSensitiveData("salt_" + currentCodename, newSalt);
+            // Update agent credentials
+            agent.setPasswordHash(newHash);
+            agent.setSalt(newSalt);
+            agent.setFailedLoginAttempts(0);
+            agent.setAccountLocked(false);
 
-            // Log the recovery event
-            manager.storeSensitiveData("recovery_timestamp_" + currentCodename, String.valueOf(System.currentTimeMillis()));
+            boolean success = dao.updateAgent(agent);
 
-            return true;
+            if (success) {
+                // Log the recovery event
+                SecurityManager.getInstance(requireContext())
+                        .storeSensitiveData("recovery_timestamp_" + currentCodename,
+                                String.valueOf(System.currentTimeMillis()));
+            }
+
+            return success;
         } catch (Exception e) {
             return false;
         }

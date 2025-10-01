@@ -22,6 +22,9 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.obsidian.omot.R;
+import org.obsidian.omot.data.daos.AgentDAO;
+import org.obsidian.omot.data.entities.Agent;
+import org.obsidian.omot.data.repository.DBRepository;
 import org.obsidian.omot.security.CredentialValidator;
 import org.obsidian.omot.security.SecurityManager;
 import org.obsidian.omot.utils.AnimationUtilities;
@@ -38,6 +41,8 @@ public class RegistrationFragment extends Fragment {
     private ProgressBar progressRegister;
     private LinearLayout layoutStatusGroup;
     private TextView tvStatus, tvPasswordStrength;
+    private DBRepository repository;
+    private AgentDAO dao;
 
     private RegistrationCallback callback;
 
@@ -63,6 +68,8 @@ public class RegistrationFragment extends Fragment {
             callback = (RegistrationCallback) getActivity();
         }
 
+        repository = DBRepository.getInstance(requireContext());
+        dao = repository.getAgentDAO();
         securityQuestions = Arrays.asList(getResources().getStringArray(R.array.security_questions));
     }
 
@@ -229,23 +236,38 @@ public class RegistrationFragment extends Fragment {
 
     private boolean performRegistration(String codename, String cipherKey, String securityQuestion, String securityAnswer, boolean biometricEnabled) {
         try {
-            SecurityManager manager = SecurityManager.getInstance(requireContext());
+            // Check if the codename is already taken
+            if (dao.isCodenameTaken(codename)) {
+                return false;
+            }
+
+            // Generate agent ID
+            String agentID = "AGENT-" + System.currentTimeMillis();
 
             // Generate salt and hash password
             String salt = CredentialValidator.generateSalt();
             String passwordHash = CredentialValidator.hashPassword(cipherKey, salt);
+            String securityAnswerHash = CredentialValidator.hashPassword(securityAnswer, salt);
 
-            // Store agent data
-            manager.storeSensitiveData("agent_codename", codename);
-            manager.storeSensitiveData("hash_" + codename, passwordHash);
-            manager.storeSensitiveData("salt_" + codename, salt);
-            manager.storeSensitiveData("security_question_" + codename, securityQuestion);
-            manager.storeSensitiveData("security_answer_" + codename, securityAnswer);
-            manager.storeSensitiveData("biometric_enabled_" + codename, String.valueOf(biometricEnabled));
-            manager.storeSensitiveData("clearance_level_" + codename, "BETA");
-            manager.storeSensitiveData("first_run", "false");
+            // Create new agent
+            Agent newAgent = new Agent(agentID, codename, passwordHash, salt, getString(R.string.clearance_beta));
+            newAgent.setSecurityQuestion(securityQuestion);
+            newAgent.setSecurityAnswerHash(securityAnswerHash);
+            newAgent.setBiometricEnabled(biometricEnabled);
+            newAgent.setLastLoginTimestamp(System.currentTimeMillis());
 
-            return true;
+            // Insert into database
+            boolean success = dao.insertAgent(newAgent);
+
+            if (success) {
+                // Store in security manager for session
+                SecurityManager manager = SecurityManager.getInstance(requireContext());
+                manager.storeSensitiveData("last_authenticated_user", codename);
+                manager.storeSensitiveData("clearance_level_" + codename, getString(R.string.clearance_beta));
+                manager.storeSensitiveData("first_run", "false");
+            }
+
+            return success;
         } catch (Exception e) {
             return false;
         }
@@ -253,7 +275,7 @@ public class RegistrationFragment extends Fragment {
 
     private void onRegistrationSuccess(String agentID) {
         showLoadingState(false);
-        showStatus(getString(R.string.registration_complete), R.color.omot_red_alert);
+        showStatus(requireContext().getString(R.string.registration_complete), R.color.omot_red_alert);
 
         if (callback != null) {
             new Handler().postDelayed(new Runnable() {

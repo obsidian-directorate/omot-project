@@ -1,8 +1,12 @@
 package org.obsidian.omot.security;
 
+import android.content.Context;
 import android.util.Base64;
 
 import org.obsidian.omot.AppContext;
+import org.obsidian.omot.data.daos.AgentDAO;
+import org.obsidian.omot.data.entities.Agent;
+import org.obsidian.omot.data.repository.DBRepository;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -14,20 +18,17 @@ public class CredentialValidator {
     private static final String TAG = "CredentialValidator";
     private static final String HASH_ALGORITHM = "SHA-256";
 
-    public static boolean validateCredentials(String codename, String password) {
-        // TODO: Implement actual database validation
-        // For now, simulate validation logic
+    public static boolean validateCredentials(Context context, String codename, String password) {
+        DBRepository repository = DBRepository.getInstance(context);
+        AgentDAO dao = repository.getAgentDAO();
 
-        SecurityManager manager = SecurityManager.getInstance(AppContext.getContext());
-        String storedHash = manager.retrieveSensitiveData("hash_" + codename);
-        String storedSalt = manager.retrieveSensitiveData("salt_" + codename);
-
-        if (storedHash == null || storedSalt == null) {
+        Agent agent = dao.getAgentByCodename(codename);
+        if (agent == null || agent.isAccountLocked()) {
             return false;
         }
 
-        String computedHash = hashPassword(password, storedSalt);
-        return computedHash.equals(storedHash);
+        String computedHash = hashPassword(password, agent.getSalt());
+        return computedHash != null && computedHash.equals(agent.getPasswordHash());
     }
 
     public static String hashPassword(String password, String salt) {

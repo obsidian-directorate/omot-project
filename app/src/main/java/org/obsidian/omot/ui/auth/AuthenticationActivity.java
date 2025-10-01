@@ -21,6 +21,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import org.obsidian.omot.R;
+import org.obsidian.omot.data.daos.AgentDAO;
+import org.obsidian.omot.data.daos.ClearanceLevelDAO;
+import org.obsidian.omot.data.entities.Agent;
+import org.obsidian.omot.data.repository.DBRepository;
 import org.obsidian.omot.security.SecurityManager;
 import org.obsidian.omot.ui.main.MainActivity;
 import org.obsidian.omot.utils.AnimationUtilities;
@@ -38,6 +42,9 @@ public class AuthenticationActivity extends AppCompatActivity implements
 
     private SecurityManager manager;
     private Handler mainHandler;
+    private DBRepository repository;
+    private AgentDAO agentDAO;
+    private ClearanceLevelDAO clearanceLevelDAO;
 
     // Authentication state
     private int failedAttempts = 0;
@@ -58,6 +65,10 @@ public class AuthenticationActivity extends AppCompatActivity implements
         });
 
         manager = SecurityManager.getInstance(this);
+        repository = DBRepository.getInstance(this);
+        agentDAO = repository.getAgentDAO();
+        clearanceLevelDAO = repository.getClearanceLevelDAO();
+
         mainHandler = new Handler(Looper.getMainLooper());
 
         initializeViews();
@@ -214,6 +225,12 @@ public class AuthenticationActivity extends AppCompatActivity implements
         return manager.retrieveSensitiveData("first_run") == null;
     }
 
+    private String getCurrentLoginAttemptCodename() {
+        // This would need to track the current login attempt codename
+        // For now, return from the login fragment
+        return null; // Implement based on the UI state
+    }
+
     // ----------------------------------------------------------- \\
     // --------------- Fragment navigation methods --------------- \\
     // ----------------------------------------------------------- \\
@@ -280,10 +297,20 @@ public class AuthenticationActivity extends AppCompatActivity implements
 
     @Override
     public void onLoginSuccess(String agentID) {
+        // Update last login timestamp in database
+        Agent agent = agentDAO.getAgentByCodename(agentID);
+        if (agent != null) {
+            agent.setLastLoginTimestamp(System.currentTimeMillis());
+            agent.setFailedLoginAttempts(0);
+            agent.setAccountLocked(false);
+            agentDAO.updateAgent(agent);
+        }
+
         // Reset failed attempts on successful login
         failedAttempts = 0;
         manager.storeSensitiveData("failed_attempts", "0");
         manager.storeSensitiveData("lockout_until", "0");
+        manager.storeSensitiveData("last_authenticated_agent", agentID);
 
         // Show success animation
         showSuccessState();
@@ -303,6 +330,24 @@ public class AuthenticationActivity extends AppCompatActivity implements
     @Override
     public void onLoginFailure() {
         failedAttempts++;
+
+        // Update failed attempts in database
+        String currentCodename = getCurrentLoginAttemptCodename();
+        if (currentCodename != null) {
+            Agent agent = agentDAO.getAgentByCodename(currentCodename);
+            if (agent != null) {
+                agent.setFailedLoginAttempts(failedAttempts);
+                agent.setLastFailedLoginTimestamp(System.currentTimeMillis());
+
+                if (failedAttempts >= 5) {
+                    agent.setAccountLocked(true);
+                    triggerLockoutProtocol();
+                }
+
+                agentDAO.updateAgent(agent);
+            }
+        }
+
         manager.storeSensitiveData("failed_attempts", String.valueOf(failedAttempts));
 
         if (failedAttempts >= 5) {

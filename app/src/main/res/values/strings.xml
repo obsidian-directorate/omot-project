@@ -142,6 +142,8 @@
     <string name="reset_failed">Failed to reset cipher key. Please try again.</string>
     <string name="credentials_recovered">CREDENTIALS RECOVERED</string>
     <string name="recovery_protocol_failed">RECOVERY PROTOCOL FAILED</string>
+    <string name="account_locked">Account locked due to security breaches</string>
+    <string name="biometric_not_enabled">Biometric access not enabled for this agent</string>
 
     <!-- Text examples -->
     <string name="agent_codename">AGENT_SHADOW</string>
