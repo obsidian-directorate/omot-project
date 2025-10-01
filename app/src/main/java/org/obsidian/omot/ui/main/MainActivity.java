@@ -312,7 +312,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void triggerPanicMode() {
         // Show confirmation dialog
-        new AlertDialog.Builder(this)
+        new AlertDialog.Builder(this, R.style.Theme_OMOT_Dialog)
                 .setTitle(getString(R.string.panic_mode_title))
                 .setMessage(getString(R.string.panic_mode_message))
                 .setPositiveButton(getString(R.string.button_dialog_positive), (dialog, which) -> {

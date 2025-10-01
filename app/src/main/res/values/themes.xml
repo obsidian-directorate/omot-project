@@ -62,6 +62,8 @@
         <item name="buttonStyle">@style/Button.OMOT</item>
         <item name="materialButtonStyle">@style/Button.OMOT</item>
         <item name="chipStyle">@style/Chip.OMOT</item>
+        <item name="alertDialogTheme">@style/Theme.OMOT.Dialog</item>
+        <item name="materialAlertDialogTheme">@style/Theme.OMOT.Dialog</item>
 
         <item name="badgeClearanceBetaStyle">@style/Badge.Clearance.BETA</item>
         <item name="badgeClearanceAlphaStyle">@style/Badge.Clearance.ALPHA</item>

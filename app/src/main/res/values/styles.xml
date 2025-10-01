@@ -11,12 +11,19 @@
     <style name="Button.OMOT.Outline" parent="Widget.Material3.Button.OutlinedButton">
         <item name="android:textColor">@color/omot_blue_light</item>
         <item name="strokeColor">@color/omot_blue_primary</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="android:backgroundTint">@android:color/transparent</item>
         <item name="cornerRadius">8dp</item>
     </style>
 
     <style name="Button.OMOT.Text" parent="Widget.Material3.Button.TextButton">
         <item name="android:textColor">@color/omot_blue_light</item>
         <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="rippleColor">@color/omot_blue_primary</item>
     </style>
 
     <!-- Text input styles -->
@@ -59,6 +66,33 @@
         <item name="android:paddingBottom">4dp</item>
         <item name="cornerRadius">12dp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Alert dialog styles -->
+    <style name="Theme.OMOT.Dialog" parent="Theme.Material3.Dark.Dialog">
+        <item name="android:windowBackground">@drawable/dialog_background</item>
+        <item name="buttonBarPositiveButtonStyle">@style/DialogButton.Positive</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogButton.Negative</item>
+        <item name="colorPrimary">@color/omot_blue_light</item>
+    </style>
+
+    <!-- Dialog button styles -->
+    <style name="DialogButton.Positive" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/omot_blue_light</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="DialogButton.Negative" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/omot_text_secondary</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
     </style>
 
     <!-- Clearance badge styles -->
