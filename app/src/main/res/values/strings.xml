@@ -32,6 +32,9 @@
     <string name="button_cancel_recovery">CANCEL RECOVERY</string>
     <string name="button_dialog_positive">CONFIRM</string>
     <string name="button_dialog_negative">CANCEL</string>
+    <string name="button_mark_complete">MARK COMPLETE</string>
+    <string name="button_view_briefing">VIEW BRIEFING</string>
+    <string name="button_activate">ACTIVATE</string>
 
     <!-- Clearance levels -->
     <string name="clearance_beta">BETA</string>
@@ -66,11 +69,21 @@
     <string name="security_question_hint">Security question</string>
     <string name="security_answer_hint">Security answer</string>
 
+    <!-- Indicators -->
+    <string name="mission_overdue">OVERDUE</string>
+
     <!-- Labels -->
     <string name="security_question_label">Security question will appear here</string>
     <string name="countdown_timer_label">UNTIL LOCKOUT EXPIRES</string>
     <string name="emergency_contact_label">EMERGENCY CONTACT</string>
     <string name="panic_mode_label">PANIC MODE ACTIVATED - ALL DATA WILL BE PURGED</string>
+    <string name="mission_status_label">STATUS</string>
+    <string name="mission_priority_label">PRIORITY</string>
+    <string name="mission_deadline_label">DEADLINE</string>
+    <string name="mission_active">Active</string>
+    <string name="mission_pending">Pending</string>
+    <string name="mission_completed">Completed</string>
+    <string name="mission_total">Total</string>
 
     <!-- Loading texts -->
     <string name="boot_progress">Establishing secure connection</string>
@@ -110,6 +123,9 @@
     <string name="account_locked_message">ACCOUNT LOCKED\nSECURITY PROTOCOL ENGAGED</string>
     <string name="unauthorized_message">UNAUTHORIZED ACCESS DETECTED\nACCOUNT LOCKED</string>
 
+    <!-- Mission priority -->
+    <string name="priority_high">High</string>
+
     <!-- Password strength indicators -->
     <string name="level_maximum">STRENGTH: MAXIMUM</string>
     <string name="level_moderate">STRENGTH: MODERATE</string>
@@ -148,6 +164,12 @@
     <!-- Text examples -->
     <string name="agent_codename">AGENT_SHADOW</string>
     <string name="last_login">Last login: 2 hours ago</string>
+    <string name="mission_overdue_amount">⚠️ 2 MISSION(S) OVERDUE</string>
+    <string name="mission_title">Operation Silent Shadow</string>
+    <string name="mission_objective">Infiltrate and extract intelligence from target facility</string>
+    <string name="mission_deadline">Sep 25, 2024 23:59</string>
+    <string name="mission_location">District 7 - Industrial Zone</string>
+    <string name="progress_text">65% complete</string>
 
     <!-- Text input errors -->
     <string name="codename_required">Codename required</string>
@@ -161,6 +183,11 @@
     <string name="countdown_timer_maximum">10:00</string>
     <string name="countdown_timer_starter">00:00</string>
     <string name="last_login_timestamp">Last login: </string>
+
+    <!-- Titles -->
+    <string name="mission_overview_title">MISSION OVERVIEW</string>
+    <string name="active_missions_title">ACTIVE MISSIONS</string>
+    <string name="pending_missions_title">PENDING MISSIONS</string>
 
     <!-- Toggles -->
     <string name="biometric_toggle">Enable biometric access</string>

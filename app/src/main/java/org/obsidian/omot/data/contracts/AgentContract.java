@@ -1,6 +1,6 @@
 package org.obsidian.omot.data.contracts;
 
-public class AgentContract {
+public final class AgentContract {
     public static final String TABLE_NAME = "tb_agents";
 
     public static final String COLUMN_AGENT_ID = "agent_id";

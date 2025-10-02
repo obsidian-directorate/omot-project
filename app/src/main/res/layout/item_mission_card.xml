@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/omot_surface_variant"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/omot_outline"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <!-- Header row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Mission title -->
+            <TextView
+                android:id="@+id/tv_mission_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/mission_title"
+                android:textAppearance="@style/TextAppearance.OMOT.Title.Medium"
+                android:textColor="@color/omot_text_primary"
+                android:textStyle="bold" />
+
+            <!-- Priority indicator -->
+            <View
+                android:id="@+id/view_priority_indicator"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:background="@color/omot_red_alert" />
+
+            <!-- Overdue indicator -->
+            <TextView
+                android:id="@+id/tv_overdue_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/omot_red_emergency"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="2dp"
+                android:text="@string/mission_overdue"
+                android:textAppearance="@style/TextAppearance.OMOT.Label.Small"
+                android:textColor="@color/omot_text_primary"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <!-- Objective -->
+        <TextView
+            android:id="@+id/tv_mission_objective"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/mission_objective"
+            android:textAppearance="@style/TextAppearance.OMOT.Body.Medium"
+            android:textColor="@color/omot_text_secondary" />
+
+        <!-- Details row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <!-- Status -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mission_status_label"
+                    android:textAppearance="@style/TextAppearance.OMOT.Label.Small"
+                    android:textColor="@color/omot_text_secondary" />
+
+                <TextView
+                    android:id="@+id/tv_mission_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/mission_active"
+                    android:textAppearance="@style/TextAppearance.OMOT.Body.Small"
+                    android:textColor="@color/omot_green_success"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Priority -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mission_priority_label"
+                    android:textAppearance="@style/TextAppearance.OMOT.Label.Small"
+                    android:textColor="@color/omot_text_secondary" />
+
+                <TextView
+                    android:id="@+id/tv_mission_priority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/priority_high"
+                    android:textAppearance="@style/TextAppearance.OMOT.Body.Small"
+                    android:textColor="@color/omot_red_alert"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Deadline -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mission_deadline_label"
+                    android:textAppearance="@style/TextAppearance.OMOT.Label.Small"
+                    android:textColor="@color/omot_text_secondary" />
+
+                <TextView
+                    android:id="@+id/tv_mission_deadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/mission_deadline"
+                    android:textAppearance="@style/TextAppearance.OMOT.Body.Small"
+                    android:textColor="@color/omot_text_primary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Location -->
+        <TextView
+            android:id="@+id/tv_mission_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawablePadding="4dp"
+            android:text="@string/mission_location"
+            android:textAppearance="@style/TextAppearance.OMOT.Body.Small"
+            android:textColor="@color/omot_text_secondary"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_location" />
+
+        <!-- Progress bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:id="@+id/progress_bar"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:progress="65"
+                android:progressTint="@color/omot_blue_light" />
+
+            <TextView
+                android:id="@+id/tv_mission_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/progress_text"
+                android:textAppearance="@style/TextAppearance.OMOT.Label.Small"
+                android:textColor="@color/omot_text_secondary" />
+        </LinearLayout>
+
+        <!-- Action buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Button.OMOT.Outline"
+                android:id="@+id/btn_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="@string/button_mark_complete" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Button.OMOT.Outline"
+                android:id="@+id/btn_briefing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="@string/button_view_briefing" />
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

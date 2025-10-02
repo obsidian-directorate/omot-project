@@ -1,12 +1,15 @@
 package org.obsidian.omot.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import org.obsidian.omot.data.contracts.AgentContract;
+import org.obsidian.omot.data.contracts.AgentMissionContract;
 import org.obsidian.omot.data.contracts.ClearanceLevelContract;
 import org.obsidian.omot.data.contracts.DBContract;
+import org.obsidian.omot.data.contracts.MissionContract;
 
 import timber.log.Timber;
 
@@ -25,9 +28,12 @@ public class DBHelper extends SQLiteOpenHelper {
             // Create tables
             db.execSQL(ClearanceLevelContract.SQL_CREATE_TABLE);
             db.execSQL(AgentContract.SQL_CREATE_TABLE);
+            db.execSQL(MissionContract.SQL_CREATE_TABLE);
+            db.execSQL(AgentMissionContract.SQL_CREATE_TABLE);
 
             // Insert default clearance levels
             db.execSQL(ClearanceLevelContract.SQL_INSERT_DEFAULT_DATA);
+            insertSampleMissions(db);
 
             Timber.tag(TAG).i("Database created successfully");
         } catch (Exception e) {
@@ -84,6 +90,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("DROP TABLE IF EXISTS " + AgentContract.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ClearanceLevelContract.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + MissionContract.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + AgentMissionContract.TABLE_NAME);
 
         onCreate(db);
     }
@@ -99,5 +107,35 @@ public class DBHelper extends SQLiteOpenHelper {
         } finally {
             db.close();
         }
+    }
+
+    private void insertSampleMissions(SQLiteDatabase db) {
+        // Insert sample missions for testing
+        long now = System.currentTimeMillis();
+        long dayInMillis = 24 * 60 * 60 * 1000;
+
+        ContentValues mission1 = new ContentValues();
+        mission1.put(MissionContract.COLUMN_MISSION_ID, "MISSION-001");
+        mission1.put(MissionContract.COLUMN_TITLE, "Operation Silent Shadow");
+        mission1.put(MissionContract.COLUMN_STATUS, "Active");
+        mission1.put(MissionContract.COLUMN_PRIORITY, "High");
+        mission1.put(MissionContract.COLUMN_START_DATE, now - (2 * dayInMillis));
+        mission1.put(MissionContract.COLUMN_END_DATE, now + (3 * dayInMillis));
+        mission1.put(MissionContract.COLUMN_OBJECTIVE, "Infiltrate and extract intelligence from target facility");
+        mission1.put(MissionContract.COLUMN_LOCATION, "District 7 - Industrial Zone");
+        mission1.put(MissionContract.COLUMN_CLEARANCE_REQUIRED, "ALPHA");
+        db.insert(MissionContract.TABLE_NAME, null, mission1);
+
+        ContentValues mission2 = new ContentValues();
+        mission2.put(MissionContract.COLUMN_MISSION_ID, "MISSION-002");
+        mission2.put(MissionContract.COLUMN_TITLE, "Asset Recovery");
+        mission2.put(MissionContract.COLUMN_STATUS, "Pending");
+        mission2.put(MissionContract.COLUMN_PRIORITY, "Medium");
+        mission2.put(MissionContract.COLUMN_START_DATE, now + dayInMillis);
+        mission2.put(MissionContract.COLUMN_END_DATE, now + (5 * dayInMillis));
+        mission2.put(MissionContract.COLUMN_OBJECTIVE, "Recover compromised intelligence assets");
+        mission2.put(MissionContract.COLUMN_LOCATION, "Downtown Sector");
+        mission2.put(MissionContract.COLUMN_CLEARANCE_REQUIRED, "BETA");
+        db.insert(MissionContract.TABLE_NAME, null, mission2);
     }
 }

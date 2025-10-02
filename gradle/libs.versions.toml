@@ -20,6 +20,7 @@ recyclerview = "1.4.0"
 roomRuntime = "2.8.0"
 rootbeerLib = "0.1.1"
 securityCrypto = "1.1.0"
+swiperefreshlayout = "1.1.0"
 timber = "5.0.1"
 viewpager2 = "1.1.0"
 
@@ -48,6 +49,7 @@ room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 rootbeer-lib = { module = "com.scottyab:rootbeer-lib", version.ref = "rootbeerLib" }
 security-crypto = { module = "androidx.security:security-crypto", version.ref = "securityCrypto" }
+swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }

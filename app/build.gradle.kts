@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.viewpager2)
     implementation(libs.constraintlayout)
+    implementation(libs.swiperefreshlayout)
 
     // Navigation
     implementation(libs.navigation.fragment.ktx)

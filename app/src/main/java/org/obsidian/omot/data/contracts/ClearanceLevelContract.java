@@ -1,6 +1,6 @@
 package org.obsidian.omot.data.contracts;
 
-public class ClearanceLevelContract {
+public final class ClearanceLevelContract {
     public static final String TABLE_NAME = "tb_clearance_levels";
 
     public static final String COLUMN_CLEARANCE_CODE = "clearance_code";

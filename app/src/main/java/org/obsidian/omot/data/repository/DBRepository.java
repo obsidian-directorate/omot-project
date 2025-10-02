@@ -4,7 +4,9 @@ import android.content.Context;
 
 import org.obsidian.omot.data.DBHelper;
 import org.obsidian.omot.data.daos.AgentDAO;
+import org.obsidian.omot.data.daos.AgentMissionDAO;
 import org.obsidian.omot.data.daos.ClearanceLevelDAO;
+import org.obsidian.omot.data.daos.MissionDAO;
 import org.obsidian.omot.data.encryption.DBEncryptionHelper;
 
 public class DBRepository {
@@ -32,6 +34,14 @@ public class DBRepository {
 
     public ClearanceLevelDAO getClearanceLevelDAO() {
         return new ClearanceLevelDAO(dbHelper.getWritableDatabase());
+    }
+
+    public MissionDAO getMissionDAO() {
+        return new MissionDAO(dbHelper.getWritableDatabase());
+    }
+
+    public AgentMissionDAO getAgentMissionDAO() {
+        return new AgentMissionDAO(dbHelper.getWritableDatabase());
     }
 
     public void close() {
