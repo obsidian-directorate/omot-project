@@ -275,7 +275,7 @@ public class RegistrationFragment extends Fragment {
 
     private void onRegistrationSuccess(String agentID) {
         showLoadingState(false);
-        showStatus(requireContext().getString(R.string.registration_complete), R.color.omot_red_alert);
+        showStatus(getString(R.string.registration_complete), R.color.omot_red_alert);
 
         if (callback != null) {
             new Handler().postDelayed(new Runnable() {

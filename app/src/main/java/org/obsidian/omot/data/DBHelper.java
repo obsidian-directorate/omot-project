@@ -9,7 +9,11 @@ import org.obsidian.omot.data.contracts.AgentContract;
 import org.obsidian.omot.data.contracts.AgentMissionContract;
 import org.obsidian.omot.data.contracts.ClearanceLevelContract;
 import org.obsidian.omot.data.contracts.DBContract;
+import org.obsidian.omot.data.contracts.DossierContract;
 import org.obsidian.omot.data.contracts.MissionContract;
+import org.obsidian.omot.data.contracts.SecureCommsContract;
+import org.obsidian.omot.data.contracts.SystemLogContract;
+import org.obsidian.omot.data.contracts.TacticalUpdateContract;
 
 import timber.log.Timber;
 
@@ -30,10 +34,15 @@ public class DBHelper extends SQLiteOpenHelper {
             db.execSQL(AgentContract.SQL_CREATE_TABLE);
             db.execSQL(MissionContract.SQL_CREATE_TABLE);
             db.execSQL(AgentMissionContract.SQL_CREATE_TABLE);
+            db.execSQL(DossierContract.SQL_CREATE_TABLE);
+            db.execSQL(SecureCommsContract.SQL_CREATE_TABLE);
+            db.execSQL(TacticalUpdateContract.SQL_CREATE_TABLE);
+            db.execSQL(SystemLogContract.SQL_CREATE_TABLE);
 
-            // Insert default clearance levels
+            // Insert default clearance levels and sample data
             db.execSQL(ClearanceLevelContract.SQL_INSERT_DEFAULT_DATA);
             insertSampleMissions(db);
+            insertSampleDossiers(db);
 
             Timber.tag(TAG).i("Database created successfully");
         } catch (Exception e) {
@@ -92,6 +101,10 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + ClearanceLevelContract.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + MissionContract.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + AgentMissionContract.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DossierContract.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + SecureCommsContract.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TacticalUpdateContract.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + SystemLogContract.TABLE_NAME);
 
         onCreate(db);
     }
@@ -137,5 +150,30 @@ public class DBHelper extends SQLiteOpenHelper {
         mission2.put(MissionContract.COLUMN_LOCATION, "Downtown Sector");
         mission2.put(MissionContract.COLUMN_CLEARANCE_REQUIRED, "BETA");
         db.insert(MissionContract.TABLE_NAME, null, mission2);
+    }
+
+    private void insertSampleDossiers(SQLiteDatabase db) {
+        long now = System.currentTimeMillis();
+
+        ContentValues dossier1 = new ContentValues();
+        dossier1.put(DossierContract.COLUMN_DOSSIER_ID, "DOSSIER-001");
+        dossier1.put(DossierContract.COLUMN_TITLE, "Subject: 'The Ghost'");
+        dossier1.put(DossierContract.COLUMN_CLEARANCE_REQUIRED_CODE, "ALPHA");
+        dossier1.put(DossierContract.COLUMN_CONTENT_FILE, "ghost_profile.pdf");
+        dossier1.put(DossierContract.COLUMN_CREATED_AT, now);
+        dossier1.put(DossierContract.COLUMN_THREAT_LEVEL, "High");
+        dossier1.put(DossierContract.COLUMN_ALIASES, "Silent One, Shadow Walker");
+        dossier1.put(DossierContract.COLUMN_LAST_UPDATED, now);
+        db.insert(DossierContract.TABLE_NAME, null, dossier1);
+
+        ContentValues dossier2 = new ContentValues();
+        dossier2.put(DossierContract.COLUMN_DOSSIER_ID, "DOSSIER-002");
+        dossier2.put(DossierContract.COLUMN_TITLE, "Operation: Crimson Dawn");
+        dossier2.put(DossierContract.COLUMN_CLEARANCE_REQUIRED_CODE, "BETA");
+        dossier2.put(DossierContract.COLUMN_CONTENT_FILE, "crimson_dawn_brief.pdf");
+        dossier2.put(DossierContract.COLUMN_CREATED_AT, now);
+        dossier2.put(DossierContract.COLUMN_THREAT_LEVEL, "Medium");
+        dossier2.put(DossierContract.COLUMN_LAST_UPDATED, now);
+        db.insert(DossierContract.TABLE_NAME, null, dossier2);
     }
 }

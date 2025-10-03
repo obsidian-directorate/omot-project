@@ -6,7 +6,9 @@ import org.obsidian.omot.data.DBHelper;
 import org.obsidian.omot.data.daos.AgentDAO;
 import org.obsidian.omot.data.daos.AgentMissionDAO;
 import org.obsidian.omot.data.daos.ClearanceLevelDAO;
+import org.obsidian.omot.data.daos.DossierDAO;
 import org.obsidian.omot.data.daos.MissionDAO;
+import org.obsidian.omot.data.daos.SecureCommDAO;
 import org.obsidian.omot.data.encryption.DBEncryptionHelper;
 
 public class DBRepository {
@@ -42,6 +44,14 @@ public class DBRepository {
 
     public AgentMissionDAO getAgentMissionDAO() {
         return new AgentMissionDAO(dbHelper.getWritableDatabase());
+    }
+
+    public DossierDAO getDossierDAO() {
+        return new DossierDAO(dbHelper.getWritableDatabase());
+    }
+
+    public SecureCommDAO getSecureCommDAO() {
+        return new SecureCommDAO(dbHelper.getWritableDatabase());
     }
 
     public void close() {
